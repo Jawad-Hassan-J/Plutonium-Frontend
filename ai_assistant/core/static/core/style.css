@@ -1,0 +1,107 @@
+/* https://codepen.io/wesleymaik/pen/gOzOjxX */
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background-color: hsl(0, 0%, 10%);   
+    color: hsl(0, 0%, 90%);
+    font-family: Arial, sans-serif;
+
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-container {
+    width: 70%;
+    max-width: 900px;
+    min-width: 500px;
+    height: 95vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: hsl(0, 0%, 0%);
+    border: 1px solid hsl(0, 0%, 25%);
+
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.chat-box {
+    flex: 1; /* grow: take all available space  */
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.message {
+    padding: 10px 15px;
+    border-radius: 15px;
+    margin: 5px 0;
+    max-width: 70%;
+    word-wrap: break-word; /* break-word: user to shift long words to the next line*/
+    white-space: pre-wrap; /* pre-warp: user to keep space and lines an it is */
+    font-size: 15px;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+/* make user message to right*/
+.user {
+    background: hsl(130, 45%, 55%);   
+    color: #fff;
+    align-self: flex-end;
+    text-align: right;
+}
+
+/* make user message to left*/
+.bot {
+    background: hsl(0, 0%, 25%);      
+    color: hsl(0, 0%, 90%);
+    align-self: flex-start;
+    text-align: left;
+    font-style: italic;
+}
+
+
+.input-bar {
+    display: flex;
+    padding: 10px;
+    background: hsl(0, 0%, 0%);
+    align-items: center;
+}
+
+
+.input-bar input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    font-size: 16px;
+    background: #222;
+    color: #eee;
+}
+
+
+.input-bar button:hover {
+    background: hsl(0, 0%, 55%);
+}
+
+
+.custom-file-upload {
+    cursor: pointer;
+    font-size: 20px;
+    margin: 0 10px;
+    color: hsl(0, 0%, 70%);
+}
+
+.custom-file-upload:hover {
+    color: hsl(0, 0%, 80%);
+}

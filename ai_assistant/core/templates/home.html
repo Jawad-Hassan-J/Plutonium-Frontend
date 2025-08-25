@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AI Assistant</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'core/style.css' %}" />
+  </head>
+  <body>
+    <div class="chat-container">
+      <div class="chat-box">
+        {% if user_input_request %}
+        <div class="message user">{{ user_input_request }}</div>
+        {% endif %} {% if result %}
+        <div class="message bot">{{ result }}</div>
+        {% endif %}
+      </div>
+
+      <form method="POST" enctype="multipart/form-data" class="input-bar">
+        {% csrf_token %}
+        <input
+          type="text"
+          name="user_input_request"
+          placeholder="Ask here"
+          required
+        />
+        <label for="user_input_file" class="custom-user_input_file">📎</label>
+        <input id="user_input_file" type="file" name="user_input_file" />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </body>
+</html>
