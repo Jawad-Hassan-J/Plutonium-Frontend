@@ -2,7 +2,7 @@ from sentence_transformers import SentenceTransformer, util
 
 from core.tools import functions
 
-from core.tools.image import image_to_text
+from core.tools.image import image_to_text, object_detection
 
 from core.tools.voice import voice_clone
 
@@ -32,7 +32,12 @@ TOOLS = {
         "قلد الصوت",
         "voice clone",
         "نسخ صوت"
-    ],
+    ],"object_detection":[
+        "object_detection",
+        "relize image",
+        "what is in the picture",
+        "شنو الي في الصورة"
+    ]
 }
 
 """
@@ -48,6 +53,7 @@ FUNCTION_MAP = {
     "add_five": functions.add_five,
     "image_to_text": image_to_text,
     "voice_clone": voice_clone,
+    "object_detection":object_detection,
 }
 
 
