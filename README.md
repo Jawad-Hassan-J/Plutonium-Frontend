@@ -22,10 +22,10 @@
 
 
 ## ERD
-[](./media/ERD.png)
+![](./media/ERD.png)
 
 ## Component hierarchy
-[](./media//component%20hierarchy.png)
+![](./media/component_hierarchy.png)
 
 ## [Notion Link](https://www.notion.so/1a9fcd547d3180a99177c3abfa077934?v=248fcd547d3180c68a78000ca4239520&source=copy_link)
 
