@@ -27,12 +27,6 @@ TOOLS = {
         "add five",
         "plus 5"
     ],
-    "image_to_text": [
-        "حول الصورة لنص",
-        "اقرأ النص من الصورة",
-        "ocr",
-        "image to text"
-    ],
       "voice_clone": [
         "استنسخ صوت",
         "قلد الصوت",
