@@ -1,23 +1,33 @@
 # Ai-Assistant
 
 ## [Deploy Link](#)
-## [Notion Link](#)
 
-### Project idea:
-#### is a Ai-Assistant where user can type the feature who need to exexute, after theat app will deciead more closed function to execute it from available feateure.
 
-#### This project are bulid on Python, function nitehr from secruch nor realy build.
+## **AI Assistant Project**
 
-#### hart of project is meachir learing with under stand thory pat and tecnical part and how preform functoins.
+### **Overview**: An AI Assistant where the user can type the feature they need to run, and the app will decide the closest matching function from the available ones.  
 
-#### This project build on complex feature so the way of work is work in sperate file the final function on project.
+### **Technology**: The project is built with Python. The functions are not written entirely from scratch but organized to be reusable and extendable.  
+
+### **Core Idea**: The heart of the project is machine learning — understanding both the theory and the technical side, and learning how to perform the functions effectively.  
+
+### **Structure**: Since the project includes multiple features, the work is separated into different files, and each final function is kept in its own place.  
+
 
 
 ## Technology used
+### image: 
+### voice: 
+### text: 
+
 
 ## ERD
+[](./media/ERD.png)
 
 ## Component hierarchy
+[](./media//component%20hierarchy.png)
+
+## [Notion Link](https://www.notion.so/1a9fcd547d3180a99177c3abfa077934?v=248fcd547d3180c68a78000ca4239520&source=copy_link)
 
 ## Recourse
 
