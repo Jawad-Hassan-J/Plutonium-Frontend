@@ -2,11 +2,21 @@
   <div class="container">
     <div class="brand">AI Assistant</div>
     <div class="links">
-      <a href="#">App</a>
+      <a href="{% url 'plutonium' %}">plutonium</a>
       <a href="#">Explore</a>
       <a href="#">profile</a>
-      <a href="#">Login</a>
-      <a href="#">Signup</a>
+      {% if user.is_authenticated %}
+      
+        <form action="{% url 'logout' %}" method="post">
+          {% csrf_token %}
+          <button type="submit">Logout</button>
+        </form>
+      
+
+      {% else %}
+      <li><a href="{% url 'signup' %}">Signup</a></li>
+      <li><a href="{% url 'login' %}">Login</a></li>
+      {% endif %}
     </div>
   </div>
 </div>
