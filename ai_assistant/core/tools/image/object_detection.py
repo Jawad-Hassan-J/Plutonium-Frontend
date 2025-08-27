@@ -1,13 +1,15 @@
 from ultralytics import YOLO
 import cv2
 import os
+import base64
+
+# نحمل الموديل في منهم قوي و بطيئ و سريع لكن بطيء
+model = YOLO("yolov10m.pt")    
 
 def object_detection(user_input_request=None, user_input_file=None):
     if not user_input_file:
         return "(object_detection) please send picture"
     
-   # نحمل الموديل في منهم قوي و بطيئ و سريع لكن بطيء
-    model = YOLO("yolov10m.pt")    
 
     # ناخذ الصورة
     file_path = os.path.join("uploads", user_input_file.name)
@@ -81,7 +83,7 @@ def object_detection(user_input_request=None, user_input_file=None):
             # (0,255,0): لون المستطيل, في هذي الحالة اخضر
             # 2: سمك الخط
             """
-            cv2.rectangle(image, (x1,y1), (x2,y2), (0,255,0), 1)
+            cv2.rectangle(image, (x1,y1), (x2,y2), (0,255,0), 2)
 
             """
             # putText(image,text, startLocation, font_family, color, font_size): دالة مدمحة تكتب كلام على الصورة
@@ -94,7 +96,7 @@ def object_detection(user_input_request=None, user_input_file=None):
             # color: لون الخط
             # font_size: حجم الخط
             """
-            cv2.putText(image,f"{label} {conf:.2f}",(x1, y1-10), cv2.FONT_HERSHEY_SIMPLEX,0.5, (0,255,0), 1)
+            cv2.putText(image,f"{label} {conf:.2f}",(x1, y1-10), cv2.FONT_HERSHEY_SIMPLEX,0.5, (0,255,0), 3)
 
             # نطبع الاشياء الي اكتشفها المودل في التيرنيمال
             print(f"Detected {label} with confidence {conf:.2f} at [{x1},{y1},{x2},{y2}]")
@@ -107,6 +109,33 @@ def object_detection(user_input_request=None, user_input_file=None):
 
     # return f"object_detection success "
 
-    output_path = os.path.join("uploads", "result.jpg")
-    cv2.imwrite(output_path, image)
-    return output_path
+    # output_path = os.path.join("uploads", "result.jpg")
+    # cv2.imwrite(output_path, image)
+    # return output_path
+
+    # st.image(file_path, caption="Detection Result")
+    
+    # cv2.imencode: ترجع عنصرين 
+    # bollean, buffer 
+    # الفكرة ان الصورة حاليا هي مصفوفة طولية في حال طبعناها بيعطيني شيء كذا [255 216 255 ... 127 255 217]
+    # الهدر الي يخلينا نعرف صيغة الصورة jpg او شيء ثاني الى اخره
+    # buffer.tolist() بيعطينا المصفوفة كامل
+    success, buffer = cv2.imencode(".jpg", image)
+    if not success:
+        # success: هو البوليان في حال كان في ايرور نعلم اليوزر
+        return {"type": "text", "value": "error encoding image"}
+
+    # حاليا عندا مصفومة numPy 
+    # نحتاج نحولها الى صيغة يفهما البايثون و الي هي البتسات, الغرض من هذي الخطوة تحويل الصيغة لشيء يفهمه البايثون و الي هو نفس صيغة حفظ الملفات في النظام
+    image_bytes = buffer.tobytes()
+    
+    """
+    # Base64:  هي طريقة لحفظ الصور بصيغة امنة مكون من ارفام و حروف
+    في ال HTML 
+    مايقبل اي صيغة بيتات لازم تكون بصيفة معنية فحولنا هذا النص الي صيغة مقبولة
+    
+    # base64.b64encode: bit --> base64
+    # decode("utf-8"): convert to string
+    """
+    image_base64 = base64.b64encode(image_bytes).decode("utf-8")
+    return {"type": "image", "value": image_base64}

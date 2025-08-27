@@ -7,15 +7,36 @@
     <link rel="stylesheet" href="{% static 'core/style.css' %}" />
   </head>
   <body>
+    
     <div class="chat-container">
       <div class="chat-box">
+
         {% if user_input_request %}
         <div class="message user">{{ user_input_request }}</div>
-        {% endif %} {% if result %}
-        <div class="message bot">{{ result }}</div>
-        {% endif %}
-      </div>
+        {% endif %} 
+        
+        {% if result %}
+          {% if result.type == "image" %}
+          {% comment %} 
+            Data url
+            data: يعني البيانات موجودة محليا
+            image: MIME type يعني الداتا هذي تخص صورة 
+            لو كان صوت بينكتب voice
+            
+            jpeg: صيغة الصورة الي هي jpeg
+            base64: البيانات هذي مكتوبة بصيفة base64
 
+          {% endcomment %}
+            <img class="bot-image" src="data:image/jpeg;base64,{{ result.value }}" />
+          {% else %}
+            <div class="message bot">
+              {{ result }}
+            </div>
+          {% endif %}
+        {% endif %}
+
+    </div>
+        
       <form method="POST" enctype="multipart/form-data" class="input-bar">
         {% csrf_token %}
         <input
@@ -24,9 +45,9 @@
           placeholder="Ask here"
           required
         />
-        <label for="user_input_file" class="custom-user_input_file">📎</label>
+        <label for="user_input_file" class="custom-file-upload">📎</label>
         <input id="user_input_file" type="file" name="user_input_file" />
-        <button type="submit">Send</button>
+        <button type="submit" class="submit-btn">⬆</button>
       </form>
     </div>
   </body>

@@ -54,7 +54,7 @@ body {
 
 /* make user message to right*/
 .user {
-    background: hsl(130, 45%, 55%);   
+    background: hsl(130, 63%, 39%);   
     color: #fff;
     align-self: flex-end;
     text-align: right;
@@ -65,8 +65,8 @@ body {
     background: hsl(0, 0%, 25%);      
     color: hsl(0, 0%, 90%);
     align-self: flex-start;
-    text-align: left;
-    font-style: italic;
+    white-space: normal; /* remove space */
+  
 }
 
 
@@ -75,10 +75,12 @@ body {
     padding: 10px;
     background: hsl(0, 0%, 0%);
     align-items: center;
+    margin-top: auto;
 }
 
 
 .input-bar input[type="text"] {
+    flex-shrink: 0;  
     flex: 1;
     padding: 10px;
     border: none;
@@ -105,3 +107,25 @@ body {
 .custom-file-upload:hover {
     color: hsl(0, 0%, 80%);
 }
+
+.bot-image {
+  width: 45%;
+  height: auto;
+  margin: 10px;
+  align-self: flex-start; 
+}
+
+#user_input_file {
+  display: none;
+}
+
+.submit-btn{
+  width:40px;
+  height:40px;
+  border:none;
+  border-radius:50%;
+  background:hsl(0, 0%, 30%);
+  color: hsl(0, 0%, 100%);
+  font-size: 20px;
+}
+
