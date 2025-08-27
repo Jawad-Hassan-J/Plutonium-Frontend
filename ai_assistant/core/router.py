@@ -6,8 +6,16 @@ from core.tools.image import image_to_text, object_detection
 
 from core.tools.voice import voice_clone
 
+# Models
+from core.models import Tool
+
 # simple model to understand the meaning of text
 model = SentenceTransformer("all-MiniLM-L6-v2")
+
+# print("6"*50)
+# tools = Tool.objects.all()
+# for tool in tools:
+#     print(tool.examples)
 
 # هذا عشان نخلي فيه تلميحات التولز و على اي اساس نختار التولز
 TOOLS = {
