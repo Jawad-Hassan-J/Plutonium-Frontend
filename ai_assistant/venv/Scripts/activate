@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\zcobr\OneDrive - University of Bahrain\GA\projects\capstone\Ai-Assistant\ai_assistant\venv"
+VIRTUAL_ENV="C:\Users\zcobr\OneDrive - University of Bahrain\GA\projects\capstone\plutonium\plutonium_backend\Ai-Assistant\ai_assistant\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
