@@ -23,3 +23,15 @@ class Tool(models.Model):
 
     def __str__(self):
         return self.name
+
+class RequestLog(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True)
+
+    user_input_request = models.TextField(blank=True, default="")
+    user_input_file_base64 = models.TextField(blank=True, default="")
+
+    server_response_text = models.TextField(blank=True, default="")
+    server_response_file_base64 = models.TextField(blank=True, default="")
+
+    def __str__(self):
+          return f"{self.user.username}"
